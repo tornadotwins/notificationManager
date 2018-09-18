@@ -1,0 +1,107 @@
+<!-- Latest jQuery -->  
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- Link the notificationManager CSS -->
+<link rel="stylesheet" href="./notificationManager.css" />
+<!-- Include the notificationManager script -->
+<script src="./notificationManager.js"></script>
+
+
+
+<style>
+body 
+{ 
+    font-family: sans-serif;  
+    margin:0;
+    padding:0;
+}
+
+.center 
+{ 
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color:#F0F5FF;
+}
+
+.center > div 
+{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}
+
+.center p
+{
+    margin:7px;
+}
+
+input[type="text"]
+{
+    display: block;
+    width: 200px;
+    height:35px;
+    border: 1px dotted #CAD3E5;
+    border-radius:5px;
+    padding: 5px;
+    margin-bottom:10px;
+}
+
+button
+{
+    display:block;
+    width: 200px;
+    height:35px;
+    background-color: #B5D3ED;
+    border-radius:5px;
+    border:none;
+    margin-bottom:10px;
+}
+
+button:hover
+{
+    background-color: #98BFE0;
+    color:white;
+}
+</style>
+
+<!-- Message Container -->
+<div id="notificationsContainer">
+</div>
+
+<!-- Example DOM -->
+<div class="center">
+    <div>
+        <p>Notification text:</p>
+        <p><input type="text" id="msg-text" value="Hello World!" /></p>
+        <p><input type="checkbox" id="animate" value="1" checked> Animate &amp; Auto-Remove</p>
+        <p><button id="notify">Notify</button></p>
+    </div>
+</div>
+
+<script>
+    //Create a notification manager
+    var notify = new notificationManager({container: $('#notificationsContainer') });
+
+    //When clicking the example button
+    $('#notify').on('click', function () 
+    {
+        //are we animating yes/no?
+        var anim    = $('#animate').is(":checked") ? true : false;
+        //what's the message?
+        var txt     = $('#msg-text').val();
+
+        //trigger the notification
+        notify.addNotification(
+        {
+            message:txt, 
+            animate:anim, 
+            autoRemove:anim
+        });
+    });
+</script>
