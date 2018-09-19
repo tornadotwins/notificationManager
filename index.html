@@ -1,12 +1,12 @@
+<!-- This is an example file to show how to use the notificationManager -->
+
 <!-- Latest jQuery -->  
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
-<!-- Link the notificationManager CSS -->
+<!-- Link the notificationManager stylesheet -->
 <link rel="stylesheet" href="./notificationManager.css" />
 <!-- Include the notificationManager script -->
 <script src="./notificationManager.js"></script>
-
-
 
 <style>
 body 
@@ -85,7 +85,7 @@ button:hover
 </div>
 
 <script>
-    //Create a notification manager
+    //STEP 1 - Create a notification manager
     var notify = new notificationManager({container: $('#notificationsContainer') });
 
     //When clicking the example button
@@ -96,7 +96,7 @@ button:hover
         //what's the message?
         var txt     = $('#msg-text').val();
 
-        //trigger the notification
+        //STEP2 - trigger the notification
         notify.addNotification(
         {
             message:txt, 
