@@ -34,7 +34,6 @@ Next, to display a notification, use any of the following:
 TODO: Ability to update an existing notification
 TODO: Ability to set appear-time
 TODO: Ability to remove close button
-TODO: Align option (top/left, top/right, bottom/left, bottom/right)
 TODO: Ability to define z-index
 
 */
@@ -197,15 +196,27 @@ function notificationManager (options = {})
             //if animation is turned on
             if(options.animate===true)
             {
-                //add the animation class to the notification...
-                node.addClass("n-animate");
-                //...and the progress bar
-                p.addClass('progress-animate');
+                node.addClass("n-animate-in");
             }
 
             if(options.autoRemove===true)
             {
-                node.bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function(e) { $(this).remove(); });
+                if(options.animate===true)
+                {
+                    //add the animation class to the notification...
+                    node.addClass("n-animate");
+                    //...and the progress bar
+                    p.addClass('progress-animate');
+                    //ensure the node removes itself after the animation finishes
+                    node.bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function(e) { $(this).remove(); });
+                }
+                else
+                {
+                    //...and the progress bar
+                    p.addClass('progress-animate');
+                    //ensure the node removes itself after the progress-bar animation finishes
+                    node.bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function(e) { $(this).remove(); });
+                }
             }
 
             if(this.isString(options.backgroundColor))

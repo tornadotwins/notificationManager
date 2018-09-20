@@ -88,43 +88,36 @@ button:hover
         </p>
         <p>Notification text:</p>
         <p><input type="text" id="msg-text" value="Hello World!" /></p>
-        <p><input type="checkbox" id="animate" value="1" checked> Animate &amp; Auto-Remove</p>
+        <p><input type="checkbox" id="animate" value="1" checked> Animate </p>
+        <p><input type="checkbox" id="autoRemove" value="1" checked> Auto-Remove</p>
         <p><button id="notify">Notify</button></p>
     </div>
 </div>
 
 <script>
-<<<<<<< HEAD:index.html
     //Create a notification manager
     var notify = new notificationManager({container: $('#notificationsContainer'), position: "bottomright" });
-=======
-    //STEP 1 - Create a notification manager
-    var notify = new notificationManager({container: $('#notificationsContainer') });
->>>>>>> 617d38560da7e9e34edd3325839d4a311122457e:index.html
 
     //When clicking the example button
     $('#notify').on('click', function () 
     {
         //are we animating yes/no?
         var anim    = $('#animate').is(":checked") ? true : false;
+        //are we automatically removing the notification after 6 seconds?
+        var auto    = $('#autoRemove').is(":checked") ? true : false;
         //what's the message?
         var txt     = $('#msg-text').val();
 
-<<<<<<< HEAD:index.html
         //notify.setPosition('topleft');
 
         //trigger the notification
-=======
-        //STEP2 - trigger the notification
->>>>>>> 617d38560da7e9e34edd3325839d4a311122457e:index.html
         notify.addNotification(
         {
             message:txt, 
             animate:anim, 
-            autoRemove:anim
+            autoRemove:auto
         });
     });
-<<<<<<< HEAD:index.html
 
    
     $( "#msg-pos" ).change(function() 
@@ -132,6 +125,3 @@ button:hover
         notify.setPosition( $('#msg-pos').val().toString() );
     });
 </script>
-=======
-</script>
->>>>>>> 617d38560da7e9e34edd3325839d4a311122457e:index.html

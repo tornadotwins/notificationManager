@@ -11,6 +11,22 @@
     }
 }
 
+@-webkit-keyframes notify-in
+{
+    0%   
+    {
+        left:-50px;
+        opacity:0;
+    }
+
+    100% 
+    {
+        left:0px;
+        opacity:1;
+    }
+
+}
+
 @-webkit-keyframes notify-in-out 
 {
     0%   
@@ -81,6 +97,16 @@
     border-radius: 5px;
 
     
+}
+
+.n-animate-in
+{
+    -webkit-animation-name: notify-in; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.5s; /* Safari 4.0 - 8.0 */
+    animation-name: notify-in;
+    animation-duration: 0.5s;
+
+    animation-timing-function: linear;
 }
 
 .n-animate
