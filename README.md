@@ -20,10 +20,11 @@ Next, to display a notification, use any of the following:
     nManager.addNotification(
     {
         message: "Notification message here",       //string: notification text (Html supported)
-        animate: true,                              //boolean: animate the fade in as well as the progress timer/bar
-        autoremove: true,                           //boolean: remove this notification from the DOM after the animation is done
+        animate: true,                              //boolean: animate the fade in and fade out 
+        autoremove: true,                           //boolean: remove this notification after 6 seconds (adds progress bar animation)
         backgroundColor: "#B5D3ED",                 //string: background color of the notification
         progressColor: "#98BFE0"                    //string: color of the progress timer/bar
     });
+
 
 */
