@@ -59,6 +59,7 @@
     position: fixed;
     max-width: 310px;
     z-index:10;
+    margin: 5px;
 }
 
 .bottomleft
@@ -96,7 +97,9 @@
     width: 300px;
     border-radius: 5px;
 
-    
+    -webkit-box-shadow: 0px 0px 53px -7px rgba(101,101,101,0.3);
+    -moz-box-shadow: 0px 0px 53px -7px rgba(101,101,101,0.3);
+    box-shadow: 0px 0px 53px -7px rgba(101,101,101,0.3);
 }
 
 .n-animate-in
