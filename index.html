@@ -1,12 +1,12 @@
+<!-- This is an example file to show how to use the notificationManager -->
+
 <!-- Latest jQuery -->  
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
-<!-- Link the notificationManager CSS -->
+<!-- Link the notificationManager stylesheet -->
 <link rel="stylesheet" href="./notificationManager.css" />
 <!-- Include the notificationManager script -->
 <script src="./notificationManager.js"></script>
-
-
 
 <style>
 body 
@@ -94,8 +94,13 @@ button:hover
 </div>
 
 <script>
+<<<<<<< HEAD:index.html
     //Create a notification manager
     var notify = new notificationManager({container: $('#notificationsContainer'), position: "bottomright" });
+=======
+    //STEP 1 - Create a notification manager
+    var notify = new notificationManager({container: $('#notificationsContainer') });
+>>>>>>> 617d38560da7e9e34edd3325839d4a311122457e:index.html
 
     //When clicking the example button
     $('#notify').on('click', function () 
@@ -105,9 +110,13 @@ button:hover
         //what's the message?
         var txt     = $('#msg-text').val();
 
+<<<<<<< HEAD:index.html
         //notify.setPosition('topleft');
 
         //trigger the notification
+=======
+        //STEP2 - trigger the notification
+>>>>>>> 617d38560da7e9e34edd3325839d4a311122457e:index.html
         notify.addNotification(
         {
             message:txt, 
@@ -115,6 +124,7 @@ button:hover
             autoRemove:anim
         });
     });
+<<<<<<< HEAD:index.html
 
    
     $( "#msg-pos" ).change(function() 
@@ -122,3 +132,6 @@ button:hover
         notify.setPosition( $('#msg-pos').val().toString() );
     });
 </script>
+=======
+</script>
+>>>>>>> 617d38560da7e9e34edd3325839d4a311122457e:index.html
