@@ -5,13 +5,14 @@ by Efraim Meulenberg
 Requires jQuery
 
 The notification manager allows you to pop notifications into view using only a few lines of js.
-You can specify the container that holds the notifications when creating the class:
+You can specify the container that holds the notifications when creating the class, as well as the screen position:
 
-    var nManager = new notificationManager({container: $('#container')});
+    var nManager = new notificationManager({container: $( '#container'), position: "topleft" });
 
-Or define it later using: 
+Or define them later using: 
 
     nManager.setContainer( $('#container') );
+    nManager.setPosition( "bottomleft" );
 
 The container can be a jQuery object, or a string used in a jQuery constructor.
 
@@ -24,6 +25,7 @@ Next, to display a notification, use any of the following:
         autoremove: true,                           //boolean: remove this notification from the DOM after the animation is done
         backgroundColor: "#B5D3ED",                 //string: background color of the notification
         progressColor: "#98BFE0"                    //string: color of the progress timer/bar
+        setPosition(string)             //specify where the notification appears. String options: topleft, topright, bottomleft, bottomright
     });
 
 */
@@ -47,6 +49,60 @@ function notificationManager (options = {})
         {
             this.setContainer(options.container)      
         }
+
+        if(options.position)
+        {
+            if(this.toString(options.position))
+            {
+                this.setPosition(options.position);
+            }
+        }
+    };
+
+    this.position = null;
+    this.setPosition = function(npos)
+    {
+        if(this.isString(npos))
+        {
+            //don't continue without having a container defined
+            this.findContainer();
+
+            switch (npos)
+            {
+                case "topleft":
+                    this.position = npos;
+                    this.container.removeClass();
+                    this.container.addClass('topleft');
+                    return true;
+                break;
+
+                case "topright":
+                    this.position = npos;
+                    this.container.removeClass();
+                    this.container.addClass('topright');
+                    return true;
+                break;
+
+                case "bottomleft":
+                    this.position = npos;
+                    this.container.removeClass();
+                    this.container.addClass('bottomleft');
+                    return true;
+                break;
+
+                case "bottomright":
+                    this.position = npos;
+                    this.container.removeClass();
+                    this.container.addClass('bottomright');
+                    return true;
+                break;
+
+                default:
+                    return false;
+                break;
+            }
+        }
+        return false;
     };
     
     /*
@@ -82,6 +138,12 @@ function notificationManager (options = {})
 
         if(options.message)
         {
+            if(!this.isString(this.position))
+            {
+                this.position = "bottomright";
+                this.container.addClass('bottomright');
+            }
+            
             /*
             <!-- Example of the DOM we're creating for a notification -->
             <div class="notification">

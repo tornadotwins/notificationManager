@@ -41,10 +41,32 @@
 #notificationsContainer
 {
     position: fixed;
-    right: 0;
-    top: 0;
     max-width: 310px;
     z-index:10;
+}
+
+.bottomleft
+{
+    left: 0;
+    bottom: 0;
+}
+
+.bottomright
+{
+    right: 0;
+    bottom: 0;
+}
+
+.topright
+{
+    right: 0;
+    top: 0;
+}
+
+.topleft
+{
+    left: 0;
+    top: 0;
 }
 
 #notificationsContainer .notification

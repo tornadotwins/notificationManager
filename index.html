@@ -41,7 +41,7 @@ body
     margin:7px;
 }
 
-input[type="text"]
+input[type="text"], select
 {
     display: block;
     width: 200px;
@@ -77,6 +77,15 @@ button:hover
 <!-- Example DOM -->
 <div class="center">
     <div>
+        <p>Position:</p>
+        <p>
+            <select type="text" id="msg-pos">
+                <option value="topleft">Top-Left Corner</option>
+                <option value="topright">Top-Right Corner</option>
+                <option value="bottomleft">Bottom-Left Corner</option>
+                <option value="bottomright" selected>Bottom-Right Corner</option>
+            </select>
+        </p>
         <p>Notification text:</p>
         <p><input type="text" id="msg-text" value="Hello World!" /></p>
         <p><input type="checkbox" id="animate" value="1" checked> Animate &amp; Auto-Remove</p>
@@ -86,7 +95,7 @@ button:hover
 
 <script>
     //Create a notification manager
-    var notify = new notificationManager({container: $('#notificationsContainer') });
+    var notify = new notificationManager({container: $('#notificationsContainer'), position: "bottomright" });
 
     //When clicking the example button
     $('#notify').on('click', function () 
@@ -96,6 +105,8 @@ button:hover
         //what's the message?
         var txt     = $('#msg-text').val();
 
+        //notify.setPosition('topleft');
+
         //trigger the notification
         notify.addNotification(
         {
@@ -103,5 +114,11 @@ button:hover
             animate:anim, 
             autoRemove:anim
         });
+    });
+
+   
+    $( "#msg-pos" ).change(function() 
+    {
+        notify.setPosition( $('#msg-pos').val().toString() );
     });
 </script>
