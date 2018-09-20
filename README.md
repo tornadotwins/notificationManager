@@ -11,7 +11,7 @@ You can specify the container that holds the notifications when creating the cla
 Or define them later using: 
 
     nManager.setContainer( $('#container') );
-    nManager.setPosition( "bottomleft" );
+    nManager.setPosition( "bottomleft" );           //String options: topleft, topright, bottomleft, bottomright
 
 The container can be a jQuery object, or a string used in a jQuery constructor.
 
@@ -24,7 +24,6 @@ Next, to display a notification, use any of the following:
         autoremove: true,                           //boolean: remove this notification from the DOM after the animation is done
         backgroundColor: "#B5D3ED",                 //string: background color of the notification
         progressColor: "#98BFE0"                    //string: color of the progress timer/bar
-        setPosition(string)                         //specify where the notification appears. String options: topleft, topright, bottomleft, bottomright
     });
 
 */
