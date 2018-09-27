@@ -24,7 +24,8 @@ Next, to display a notification, use any of the following:
         animate: true,                              //boolean: animate the fade in and fade out 
         autoremove: true,                           //boolean: remove this notification after 6 seconds (adds progress bar animation)
         backgroundColor: "#B5D3ED",                 //string: background color of the notification
-        progressColor: "#98BFE0"                    //string: color of the progress timer/bar
+        progressColor: "#98BFE0",                   //string: color of the progress timer/bar
+        color: "white"                              //string: notification text color
     });
 
 */
@@ -55,7 +56,17 @@ function notificationManager (options = {})
                 this.setPosition(options.position);
             }
         }
+
     };
+
+    this.color = null;
+    this.setColor = function (color)
+    {
+        if(this.isString(color))
+        {
+            this.color=color;
+        }
+    }
 
     this.position = null;
     this.setPosition = function(npos)
@@ -141,6 +152,11 @@ function notificationManager (options = {})
                 this.position = "bottomright";
                 this.container.addClass('bottomright');
             }
+
+            if(options.color && this.isString(options.color))
+            {
+                this.setColor(options.color);
+            }
             
             /*
             <!-- Example of the DOM we're creating for a notification -->
@@ -164,6 +180,11 @@ function notificationManager (options = {})
 
             var node = $('<div/>')
                 .addClass('notification')
+
+            if(this.isString(this.color))
+            {
+                node.css('color', this.color);
+            }
                 
             var pad = $('<div/>')
                 .addClass('pad')

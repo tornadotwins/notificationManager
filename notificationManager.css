@@ -1,4 +1,4 @@
-@-webkit-keyframes progress-shrink
+@keyframes progress-shrink
 {
     0%
     {
@@ -11,7 +11,7 @@
     }
 }
 
-@-webkit-keyframes notify-in
+@keyframes notify-in
 {
     0%   
     {
@@ -27,7 +27,7 @@
 
 }
 
-@-webkit-keyframes notify-in-out 
+@keyframes notify-in-out 
 {
     0%   
     {
@@ -155,7 +155,6 @@
 {
     clear: both;
     float: left;
-    height: 5px;
     padding-top: 10px;
     width: 100%;
     text-align:left;

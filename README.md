@@ -1,5 +1,8 @@
 # notificationManager
 notificationManager Class
+by Efraim Meulenberg
+
+[HOSTED EXAMPLE](http://tornadotwins.com/github/notificationManager/)
 
 Requires jQuery
 
